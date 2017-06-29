@@ -1,0 +1,21 @@
+<html>
+	<head>
+		<title>A book</title>
+	</head>
+	<body>
+		{% if book.review %}
+			<div class="book">
+				<h3>{{book.title}}</h3>
+				<p>By {% for author in book.authors.all %} {{ author.name }}{% endfor %}</p>
+				<p>{{ book.reivew|linebreaks }}</p>
+			
+				<p class="meta">
+					Reviewed on <strong>{{ book.date_reviewed|date:"D d M Y" }}</strong>
+					{% if book.reviewed_by %}
+					by <strong>{{ book.reviewed_by.get_full_name|default:book.reviewed_by.username }}</strong>
+					{% endif %}
+				</p>
+			</div>
+		{%endif%}
+	</body>
+</html>

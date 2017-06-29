@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% block content %}
+		<h1>{{ books.count|apnumber|title }} book{{ book.count|pluralize }}</h1>
+
+		{% for book in books %}
+			<h2><a href="{% url 'book-detail' book.pk %}">{{ book.title }} </a> by {{ book.list_authors }}</h2>
+			{% if book.is_favourite %}
+				<span class="higtlight">favourite</span>
+			{% endif %}
+			{{ book.review }}
+		{% endfor %}
+{% endblock %}
