@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+		 
+			<h1>{{ posts.count }} post(s)</h1>
+
+			{% for post in posts %}
+				<h2> {{ post.title }} by {{ post.list_post_owners }}</h2>
+				<a href="{% url 'post_details' post.pk %}">Click to go</a>
+			{% endfor %}
+			<a href="{% url 'students' %}">Check the studetns here</a>
+{% endblock %}

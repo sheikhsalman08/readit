@@ -16,6 +16,11 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from student_post.views import list_posts, Students_list, Post_details
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', list_posts, name='posts'),
+    url(r'^students/$', Students_list.as_view(), name='students'),
+    url(r'^post/(?P<pk>[-\w]+)/$', Post_details.as_view(), name='post_details'),
 ]

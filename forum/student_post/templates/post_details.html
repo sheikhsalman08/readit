@@ -1,0 +1,13 @@
+
+<html>
+	<head>
+		<title>A book</title>
+	</head>
+	<body>
+	<a href="{% url 'post_details' post.pk %}">Click to go</a>
+	Title :-	{{ post.title  }} </br>
+	Post Owner :-	{{ post.list_post_owners  }} </br>
+	Post :-	 {{ post.post  }} </br>
+	Date Posted : -	{{ post.date_posted }}
+	</body>
+</html>

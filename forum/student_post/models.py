@@ -20,7 +20,7 @@ class Post(models.Model):
 		if (self.date_posted is None):
 			self.date_posted = now()
 
-		super(Book. self).save(*args, **kwargs)
+		super(Post, self).save(*args, **kwargs)
 
 
 class Student(models.Model):

@@ -1,0 +1,22 @@
+{% load static %}
+<html>
+	<head>
+		<title>Limkokwing Student Forum</title>
+		<link rel=stylesheet" href="{% static 'style.css' %}">
+	</head>
+	<body>
+		<header>
+			{% if request.user.is_authenticated %}
+				<p>Hello {{ request.user.username }}, <br> You last logged in at {{ request.user.last_login }}
+			{% else %}
+				<p> welcome guest </p>
+			{% endif %}
+		</header>
+		<main>
+			{% block content %}{% endblock %}
+		</main>
+		<footer>
+			<p>Only for Limkokwing Univeristy Students</p>
+		</footer>
+	</body>
+</html>
