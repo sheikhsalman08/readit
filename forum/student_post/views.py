@@ -1,5 +1,7 @@
+from django.core.urlresolvers import reverse
 from django.shortcuts import redirect, get_object_or_404, render
 from django.views.generic import View, DetailView
+from django.views.generic.edit import CreateView
 from .models import Post , Student
 from .forms import PostForm, PostFormClassBassed
 
@@ -83,3 +85,10 @@ def insert_post(request, pk):
 
 	return render(request, "insert_post.html", context)
  
+class CreateStudent(CreateView):
+ 	model = Student
+ 	fields = ['name']
+ 	template_name = 'createStudentCreateView.html'
+
+ 	def get_success_url(self):
+ 		return reverse('createStudentCreateView')

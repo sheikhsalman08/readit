@@ -1,4 +1,5 @@
 from __future__ import unicode_literals
+from django.core.urlresolvers import reverse
 from django.db import models
 from django.utils.timezone import now
 
@@ -28,3 +29,6 @@ class Student(models.Model):
 
 	def __str__(self):
 		return self.name
+
+	def get_absolute_url(self):
+		return reverse('students', kwargs={'pk',self.pk})
