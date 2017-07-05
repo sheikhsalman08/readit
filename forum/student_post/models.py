@@ -1,4 +1,5 @@
 from __future__ import unicode_literals
+from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 from django.db import models
 from django.utils.timezone import now
@@ -26,6 +27,7 @@ class Post(models.Model):
 
 class Student(models.Model):
 	name = models.CharField(max_length=80)
+	assign_to_lecturer = models.ForeignKey(User, blank = True, null = True, related_name='students')
 
 	def __str__(self):
 		return self.name

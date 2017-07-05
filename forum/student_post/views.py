@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.shortcuts import redirect, get_object_or_404, render
 from django.views.generic import View, DetailView
@@ -58,7 +59,7 @@ class Post_details(DetailView):
 	template_name = 'post_details.html'
 
 
-
+@login_required
 def insert_post(request, pk):
 
 	post = get_object_or_404(Post, pk=pk)
